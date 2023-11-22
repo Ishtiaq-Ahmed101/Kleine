@@ -1,10 +1,9 @@
 import { View, Text } from "react-native"
+import AuthHome from "../components/auth/AuthHome"
 
 const index = () => {
   return (
-    <View>
-      <Text>Hello</Text>
-    </View>
+    <AuthHome />
   )
 }
 
