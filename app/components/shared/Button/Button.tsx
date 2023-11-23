@@ -5,16 +5,19 @@ import {
 } from "react-native";
 import { getButtonStyle, getTextStyle } from "./Button.styles";
 
+
+
 type Props = {
   title: string,
   color: string,
-  textColor: string
+  textColor: string,
+  width:number,
   onPress?: () => void,
 }
 
 
-const Button = ({ title, color, onPress,  textColor  }: Props) => {
-  const buttonStyle = getButtonStyle({ color });
+const Button = ({ title, color, onPress, textColor, width }: Props) => {
+  const buttonStyle = getButtonStyle({ color, width });
   const textStyle = getTextStyle({ textColor });
   return (
     <TouchableOpacity style={buttonStyle} onPress={onPress}>
