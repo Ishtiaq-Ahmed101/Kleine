@@ -9,11 +9,13 @@ const WelcomeStyles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
     padding: 20,
+    gap:40,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 20,
+    gap:5,
   },
   headerImage: {
     height: 16.02,
@@ -27,6 +29,8 @@ const WelcomeStyles = StyleSheet.create({
     alignItems: 'center',
     textAlign: 'center',
     marginBottom: 20,
+    gap:20,
+    width:284,
   },
   heading: {
     fontSize: 30,

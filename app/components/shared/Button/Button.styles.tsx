@@ -2,15 +2,16 @@
 
  type ButtonStyleProps = {
    color: string;
+   width:number
  };
  
 type TextStyleProps = {
     textColor: string;
   };
 
-export const getButtonStyle = ({ color }: ButtonStyleProps): ViewStyle => ({
+export const getButtonStyle = ({ color, width }: ButtonStyleProps): ViewStyle => ({
   backgroundColor: color,
-  width: 256,
+  width: width,
   height: 48,
   borderRadius: 5,
   padding: 2,

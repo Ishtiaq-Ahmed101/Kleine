@@ -39,6 +39,7 @@ const Welcome = () => {
                     title={'Register'}
                     color={'#000DAE'}
                     textColor={'white'}
+                    width={256}
                 />
             </Link>
             <Link href="/login" asChild>
@@ -46,6 +47,7 @@ const Welcome = () => {
                     title={'Log In'}
                     color={'#E6E8EF'}
                     textColor={'black'}
+                    width={256}
                 />
             </Link>
         </View>
