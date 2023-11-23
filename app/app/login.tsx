@@ -32,8 +32,13 @@ const register = () => {
           <Text style={LogInStyles.heading}>
             Let's Login.
           </Text>
+          <Text>
+            or
+          </Text>
           <Text style={LogInStyles.subHeading}>
-            Do you have an account? Login
+            <Link href="/register">
+              Create an account today!              
+             </Link>
           </Text>
         </View>
         {/* Inputfields */}
@@ -55,21 +60,13 @@ const register = () => {
 
 
         {/* Buttons */}
-        <View style={LogInStyles.btnConatiner}>
-          <Link href="/" asChild>
+        <View>
             <Button
               title={'Login'}
               color={'#000DAE'}
               textColor={'white'}
               width={310}
             />
-          </Link>
-        </View>
-
-        {/* Social links */}
-        <View style={LogInStyles.socialLinksContainer}>
-          <Link href={"#"} style={LogInStyles.socialLink}><Image style={LogInStyles.socialIcon} source={require('../assets/icons/facebook.png')} />    Facebook</Link>
-          <Link href={"#"} style={LogInStyles.socialLink}><Image style={LogInStyles.socialIcon} source={require('../assets/icons/gmail.png')} />    Gmail</Link>
         </View>
 
       </View>

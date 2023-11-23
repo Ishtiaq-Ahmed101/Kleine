@@ -1,21 +1,22 @@
-// using manay thing from the login page but this is registers page.
-
 import React from 'react'
 import { Text, View, ImageBackground, Image } from 'react-native';
-import { Link } from 'expo-router';
 import { SafeAreaView, StyleSheet, TextInput } from 'react-native';
-
 import { LogInStyles } from '../styles/login.styles'
 import Button from '../components/shared/Button/Button';
+import { Link } from 'expo-router';
+import useRegister from '../hooks/useRegister';
 
 
 
 
 const register = () => {
-  const [firstName, setFirstName] = React.useState('');
   const [lastName, setLastName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+
+  const {firstName ,setFirstName, onSubmit } = useRegister()
+
+  
 
   return (
     <ImageBackground
@@ -23,7 +24,6 @@ const register = () => {
       style={LogInStyles.backgroundImage}
     >
       <View style={LogInStyles.container}>
-        {/* Header */}
         <View style={LogInStyles.header}>
           <Image
             source={require('../assets/fragments/half-pie.png')}
@@ -31,16 +31,16 @@ const register = () => {
           />
           <Text style={LogInStyles.headerText}>Kline.</Text>
         </View>
-
         <View style={LogInStyles.mainText}>
           <Text style={LogInStyles.heading}>
             Let's Register.
           </Text>
-          <Text style={LogInStyles.subHeading}>
-            Do you have an account? Login
-          </Text>
+          <Link href="/login">
+            <Text style={LogInStyles.subHeading}>
+              Already have an account? Login
+            </Text>
+          </Link>
         </View>
-        {/* Inputfields */}
         <SafeAreaView style={LogInStyles.inputContainer}>
           <TextInput
             style={LogInStyles.inputField}
@@ -59,35 +59,25 @@ const register = () => {
             onChangeText={setEmail}
             value={email}
             placeholder="Email"
+            inputMode='email'
           />
           <TextInput
             style={LogInStyles.inputField}
             onChangeText={setPassword}
             value={password}
             placeholder="Password"
-          />
+            secureTextEntry={true}
+            />
         </SafeAreaView>
-
-
-
-        {/* Buttons */}
-        <View style={LogInStyles.btnConatiner}>
-          <Link href="/" asChild>
+        <View>
             <Button
               title={'Register'}
               color={'#000DAE'}
               textColor={'white'}
               width={310}
+              onPress={onSubmit}
             />
-          </Link>
         </View>
-
-        {/* Social links */}
-        <View style={LogInStyles.socialLinksContainer}>
-          <Link href={"#"} style={LogInStyles.socialLink}><Image style={LogInStyles.socialIcon} source={require('../assets/icons/facebook.png')} />    Facebook</Link>
-          <Link href={"#"} style={LogInStyles.socialLink}><Image style={LogInStyles.socialIcon} source={require('../assets/icons/gmail.png')} />    Gmail</Link>
-        </View>
-
       </View>
     </ImageBackground>
   )

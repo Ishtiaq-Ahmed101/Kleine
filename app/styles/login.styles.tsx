@@ -43,7 +43,8 @@ export const LogInStyles = StyleSheet.create({
     },
     subHeading: {
         textAlign: 'center',
-        paddingVertical: 8
+        paddingVertical: 1,
+        textDecorationLine: "underline"
     },
     inputContainer: {
         gap: 8,
@@ -58,11 +59,6 @@ export const LogInStyles = StyleSheet.create({
         textAlign: "center",
 
     },
-    btnConatiner: {
-
-    },
-
-    // social links
     socialLinksContainer: {
         display: 'flex',
         flexDirection: 'row',

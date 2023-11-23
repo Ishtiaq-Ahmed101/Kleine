@@ -51,6 +51,22 @@ const WelcomeStyles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  registerLink: {
+    backgroundColor: "#000DAE",
+    width: 256,
+    padding: 15,
+    borderRadius: 8,
+    textAlign: "center",
+    color: "#fff"
+   },
+   logInLink: {
+    backgroundColor: "#E6E8EF",
+    width: 256,
+    padding: 15,
+    borderRadius: 8,
+    textAlign: "center",
+    color: "#000"
+   },
 });
 
 export default WelcomeStyles;

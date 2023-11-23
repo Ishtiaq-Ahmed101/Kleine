@@ -12,7 +12,7 @@ type Props = {
   color: string,
   textColor: string,
   width:number,
-  onPress?: () => void,
+  onPress?: any,
 }
 
 

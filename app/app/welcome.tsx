@@ -35,20 +35,10 @@ const Welcome = () => {
         {/* Buttons */}
         <View style={WelcomeStyles.buttonView}>
             <Link href="/register" asChild>
-                <Button
-                    title={'Register'}
-                    color={'#000DAE'}
-                    textColor={'white'}
-                    width={256}
-                />
+                <Text style={WelcomeStyles.registerLink}>Register</Text>
             </Link>
             <Link href="/login" asChild>
-                <Button
-                    title={'Log In'}
-                    color={'#E6E8EF'}
-                    textColor={'black'}
-                    width={256}
-                />
+               <Text style={WelcomeStyles.logInLink}>Log In</Text>
             </Link>
         </View>
       </View>
