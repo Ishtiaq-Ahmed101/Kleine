@@ -1,8 +1,13 @@
+const User = require("../models/User")
+const Bycrypt = require("bcryptjs")
+
+
 // @desc    Get all Users
 // @route   GET /api/users
 // @access  Private
-exports.getUsers = (req, res, next) => {
-    res.status(200).json({success: true, msg: "All Users"})
+exports.getUsers = async (req, res, next) => {
+    const users  = await User.find()
+    res.status(201).json({success: true, data: users})
 }
 
 
@@ -17,8 +22,16 @@ exports.getUser = (req, res, next) => {
 // @desc    Create a User
 // @route   POST /api/user
 // @access  Public
-exports.createUser = (req, res, next) => {
-    res.status(200).json({success: true, msg: "Create Single User"})
+exports.createUser = async (req, res, next) => {
+    try {
+        const password = req.body.password;
+        const encryptedPassword = await Bycrypt.hash(password, 10)
+        const user  = await User.create({...req.body, password: encryptedPassword})
+        res.status(201).json({success: true, data: user})
+    } catch (error) {
+        console.log(error)
+    }
+    
 }
 
 
@@ -26,6 +39,7 @@ exports.createUser = (req, res, next) => {
 // @route   DELETE /api/user
 // @access  Private
 exports.removeUser = (req, res, next) => {
+    console.log(req.params.id)
     res.status(200).json({success: true, msg: "Delete User"})
 }
 
