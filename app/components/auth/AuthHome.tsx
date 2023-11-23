@@ -1,6 +1,6 @@
 import React from 'react'
 import {Text, View, ImageBackground, StyleSheet, Image, Button, TouchableOpacity } from 'react-native';
-import Btn from '../common/btn';
+import Btn from '../shared/Button/Button';
 
 
 const AuthHome = () => {
