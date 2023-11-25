@@ -50,3 +50,24 @@ exports.removeUser = (req, res, next) => {
 exports.updateUser = (req, res, next) => {
     res.status(200).json({success: true, msg: "Update User"})
 }
+
+
+// @desc    LogIn a User
+// @route   POST /api/user/login
+// @access  Public
+exports.logIn = async (req, res, next) => {
+    try {
+        const email = req.body.email;
+        const password = req.body.password;
+        const user = await User.findOne({email: email})
+        const pass = await Bycrypt.compare(password, user.password)
+
+        if (pass === true) {
+            res.status(200).json({success: true, msg: "User Logged In Successfully", data: user})
+        } else {
+            res.status(404).json({success: false, msg: "Check your username and password"})
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
