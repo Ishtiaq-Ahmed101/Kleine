@@ -10,14 +10,8 @@ import useRegister from '../hooks/useRegister';
 
 
 const register = () => {
-  const [lastName, setLastName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-
-  const {firstName ,setFirstName, onSubmit } = useRegister()
-
+  const {setFirstName, setLastName, setEmail, setPassword, onSubmit } = useRegister()
   
-
   return (
     <ImageBackground
       source={require('../assets/backgrounds/main.png')}
@@ -45,26 +39,22 @@ const register = () => {
           <TextInput
             style={LogInStyles.inputField}
             onChangeText={setFirstName}
-            value={firstName}
             placeholder="First Name"
           />
           <TextInput
             style={LogInStyles.inputField}
             onChangeText={setLastName}
-            value={lastName}
             placeholder="Last Name"
           />
           <TextInput
             style={LogInStyles.inputField}
             onChangeText={setEmail}
-            value={email}
             placeholder="Email"
             inputMode='email'
           />
           <TextInput
             style={LogInStyles.inputField}
             onChangeText={setPassword}
-            value={password}
             placeholder="Password"
             secureTextEntry={true}
             />
