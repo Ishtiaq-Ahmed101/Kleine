@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-native-community/blur": "^4.3.2",
+    "axios": "^1.6.2",
     "expo": "~49.0.15",
     "expo-constants": "~14.4.2",
     "expo-font": "~11.4.0",
