@@ -1,15 +1,18 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { Text, View, ImageBackground, Image } from 'react-native';
 import { SafeAreaView, StyleSheet, TextInput } from 'react-native';
 import { LogInStyles } from '../styles/login.styles'
 import Button from '../components/shared/Button/Button';
 import { Link } from 'expo-router';
 import useRegister from '../hooks/useRegister';
+import axios from 'axios';
 
 
 
 
 const register = () => {
+  
   const {setFirstName, setLastName, setEmail, setPassword, onSubmit } = useRegister()
   
   return (
