@@ -5,13 +5,13 @@ import { SafeAreaView, StyleSheet, TextInput } from 'react-native';
 
 import { LogInStyles } from '../styles/login.styles'
 import Button from '../components/shared/Button/Button';
+import UseLogin from '../hooks/useLogin';
 
 
 
 
 const register = () => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPasword] = React.useState('');
+ const {setEmail, setPassword, onSubmit} = UseLogin() 
 
   return (
     <ImageBackground
@@ -46,13 +46,11 @@ const register = () => {
           <TextInput
             style={LogInStyles.inputField}
             onChangeText={setEmail}
-            value={email}
             placeholder="Email"
           />
           <TextInput
             style={LogInStyles.inputField}
-            onChangeText={setPasword}
-            value={password}
+            onChangeText={setPassword}
             placeholder="Password"
           />
         </SafeAreaView>
@@ -66,6 +64,7 @@ const register = () => {
               color={'#000DAE'}
               textColor={'white'}
               width={310}
+              onPress={onSubmit}
             />
         </View>
 

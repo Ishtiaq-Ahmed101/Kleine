@@ -1,5 +1,5 @@
 import React from 'react'
-import { RegisterUser } from '../services/endpoints/user';
+import { RegisterUser } from '../services/endpoints/RegisterUser';
 import {ToastAndroid} from 'react-native';
 import { router } from 'expo-router';
 
