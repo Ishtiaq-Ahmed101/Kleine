@@ -5,7 +5,7 @@ async function LoginUser(email: string, password: string) {
         throw new Error("All fields are required");
     }
     try {
-        const response = await axiosClient().post("/user/login", {
+        const response = await axiosClient().post("/users/login/", {
             email,
             password,
         });
