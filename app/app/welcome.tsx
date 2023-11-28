@@ -14,14 +14,14 @@ const Welcome = () => {
     >
       <View style={WelcomeStyles.container}>
         {/* Header */}
-        <View style={WelcomeStyles.header}>
+        {/* <View style={WelcomeStyles.header}>
           <Image
             source={require('../assets/fragments/half-pie.png')}
             style={WelcomeStyles.headerImage}
           />
           <Text style={WelcomeStyles.headerText}>Kline.</Text>
-        </View>
-
+        </View> */}
+         <Image  source={require('../assets/fragments/logo.png')}></Image>
         <View style={WelcomeStyles.mainText}>
           <Text style={WelcomeStyles.heading}>
             The Right Address For Shopping Anyday
