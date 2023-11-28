@@ -2,6 +2,9 @@ import React from 'react'
 import { RegisterUser } from '../services/endpoints/RegisterUser';
 import {ToastAndroid} from 'react-native';
 import { router } from 'expo-router';
+import { axiosClient } from "../services/apiClient";
+import { err } from 'react-native-svg/lib/typescript/xml';
+
 
 
 
@@ -12,12 +15,23 @@ const useRegister = () => {
     const [password, setPassword] = React.useState('');
 
     const onSubmit = async () => {
-        const response = await RegisterUser(firstName, lastName, email, password);
-        if (response.success = true) {
-            ToastAndroid.show('Register Successfully', ToastAndroid.LONG);
+
+        if (!firstName || !lastName || !email || !password) {
+            ToastAndroid.show('Please fill all the required fields', ToastAndroid.LONG);
+            return;
+        }
+
+        try {
+            const response = await axiosClient().post("/users/", {
+                firstName,
+                lastName,
+                email,
+                password,
+            });
+            ToastAndroid.show('Registered Successfully', ToastAndroid.LONG);
             router.replace('/home');
-        } else {
-            ToastAndroid.show('Something went wrong!', ToastAndroid.LONG);
+        } catch (error) {
+            ToastAndroid.show('Something went wrong! Please try again', ToastAndroid.LONG);
             setFirstName("")
             setLastName("")
             setEmail("")

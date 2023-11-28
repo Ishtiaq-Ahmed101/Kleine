@@ -11,7 +11,7 @@ import UseLogin from '../hooks/useLogin';
 
 
 const register = () => {
- const {setEmail, setPassword, onSubmit} = UseLogin() 
+ const {email, setEmail, password, setPassword, onSubmit} = UseLogin() 
 
   return (
     <ImageBackground
@@ -45,11 +45,13 @@ const register = () => {
         <SafeAreaView style={LogInStyles.inputContainer}>
           <TextInput
             style={LogInStyles.inputField}
+            value={email}
             onChangeText={setEmail}
             placeholder="Email"
           />
           <TextInput
             style={LogInStyles.inputField}
+            value={password}
             onChangeText={setPassword}
             placeholder="Password"
           />
