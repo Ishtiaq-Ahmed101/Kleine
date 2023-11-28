@@ -6,16 +6,26 @@ const Bycrypt = require("bcryptjs")
 // @route   GET /api/users
 // @access  Private
 exports.getUsers = async (req, res, next) => {
-    const users  = await User.find()
-    res.status(201).json({success: true, data: users})
+    try {
+        const users  = await User.find()
+        res.status(201).json({success: true, data: users})
+    } catch (err) {
+        next(err)
+    }
+    
 }
 
 
 // @desc    Get single User
 // @route   GET /api/user
 // @access  Private
-exports.getUser = (req, res, next) => {
-    res.status(200).json({success: true, msg: "Single User"})
+exports.getUser = async (req, res, next) => {
+    try {
+        const user = await User.findById(req.params.id)
+        res.status(200).json({success: true, data: user})
+    } catch (err) {
+        next(err);
+    }
 }
 
 
@@ -28,8 +38,8 @@ exports.createUser = async (req, res, next) => {
         const encryptedPassword = await Bycrypt.hash(password, 10)
         const user  = await User.create({...req.body, password: encryptedPassword})
         res.status(201).json({success: true, data: user})
-    } catch (error) {
-        console.log(error)
+    } catch (err) {
+        next(err)
     }
     
 }
@@ -38,9 +48,14 @@ exports.createUser = async (req, res, next) => {
 // @desc    Delete a User
 // @route   DELETE /api/user
 // @access  Private
-exports.removeUser = (req, res, next) => {
-    console.log(req.params.id)
-    res.status(200).json({success: true, msg: "Delete User"})
+exports.removeUser = async (req, res, next) => {
+    try {
+        const user = await User.findByIdAndDelete(req.params.id)
+        res.status(200).json({success: true, data: user})
+    } catch (err) {
+        next(err)
+    }
+    
 }
 
 
@@ -67,7 +82,7 @@ exports.logIn = async (req, res, next) => {
         } else {
             res.status(404).json({success: false, msg: "Check your username and password"})
         }
-    } catch (error) {
-        console.log(error)
+    } catch (err) {
+        next(err)
     }
 }
