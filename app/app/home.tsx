@@ -1,14 +1,30 @@
-import React, { useEffect } from 'react'
-import { View, Text } from 'react-native'
+import React, { useEffect, useState } from 'react';
+import { View, Text } from 'react-native';
+import { getData } from '../utils/storage';
+import { userType } from '../types';
 
-const home = () => {
+const Home = () => {
+  const [user, setUser] = useState<userType | null>(null);
 
+  const getUser = async () => {
+    const userData = await getData('user') as userType | null;
+    setUser(userData);
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   return (
     <View>
-        <Text>Home</Text>
+      {user && (
+        <>
+          <Text>{user.firstName}</Text>
+          <Text>Hello</Text>
+        </>
+      )}
     </View>
-  )
-}
+  );
+};
 
-export default home
+export default Home;

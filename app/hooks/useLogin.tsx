@@ -1,8 +1,8 @@
 import React from 'react'
-import LoginUser from '../services/endpoints/LoginUser'
 import {ToastAndroid} from 'react-native';
 import { router } from 'expo-router';
 import { axiosClient } from "../services/apiClient";
+import { storeData } from '../utils/storage';
 
 
 const UseLogin = () => {
@@ -22,6 +22,7 @@ const UseLogin = () => {
                 password,
             });
             ToastAndroid.show('Login Successfully', ToastAndroid.LONG);
+            storeData(response.data.data);
             router.replace('/home');
         } catch (error) {
             ToastAndroid.show('Something went wrong!', ToastAndroid.LONG);

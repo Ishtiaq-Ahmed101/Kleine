@@ -4,7 +4,7 @@ import {ToastAndroid} from 'react-native';
 import { router } from 'expo-router';
 import { axiosClient } from "../services/apiClient";
 import { err } from 'react-native-svg/lib/typescript/xml';
-
+import { storeData } from '../utils/storage';
 
 
 
@@ -29,6 +29,7 @@ const useRegister = () => {
                 password,
             });
             ToastAndroid.show('Registered Successfully', ToastAndroid.LONG);
+            storeData(response.data.data);
             router.replace('/home');
         } catch (error) {
             ToastAndroid.show('Something went wrong! Please try again', ToastAndroid.LONG);

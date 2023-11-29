@@ -9,8 +9,6 @@ import useRegister from '../hooks/useRegister';
 import axios from 'axios';
 
 
-
-
 const register = () => {
   
   const {setFirstName, setLastName, setEmail, setPassword, onSubmit } = useRegister()
